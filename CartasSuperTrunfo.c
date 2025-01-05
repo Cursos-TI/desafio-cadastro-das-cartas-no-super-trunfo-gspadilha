@@ -12,6 +12,8 @@ typedef struct
     float area;            // Área (em km²)
     float pib;             // PIB (em bilhões)
     int pontos_turisticos; // Número de pontos turísticos
+    float densidade_populacional; // População dividida pela área da cidade
+    float pib_per_capita; // PIB total dividido pela população
 } Cidade;
 
 // Função para cadastrar uma cidade
@@ -35,6 +37,9 @@ void cadastrarCidade(Cidade *cidade, char estadoLetra, int cidadeNumero)
 
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &cidade->pontos_turisticos);
+
+    cidade->densidade_populacional = cidade->populacao / cidade->area;
+    cidade->pib_per_capita = cidade->pib / cidade->populacao;
 }
 
 // Função para exibir os dados de uma cidade
