@@ -69,10 +69,92 @@ void exibirCidade(Cidade cidade)
     printf("Super Poder: %.2f\n", cidade.super_poder);
 }
 
-// Função para comparar o super poder de duas cidades
+// Função para comparar o super poder de duas cidades, considerando a nova regra
 void compararCartas(Cidade cidade1, Cidade cidade2)
 {
     printf("\nComparando %s e %s:\n", cidade1.codigo, cidade2.codigo);
+
+    // Comparação da densidade populacional (vence a cidade com menor densidade)
+    if (cidade1.densidade_populacional < cidade2.densidade_populacional)
+    {
+        printf("A cidade %s tem uma densidade populacional menor (%.2f) que a cidade %s (%.2f).\n", cidade1.codigo, cidade1.densidade_populacional, cidade2.codigo, cidade2.densidade_populacional);
+    }
+    else if (cidade1.densidade_populacional > cidade2.densidade_populacional)
+    {
+        printf("A cidade %s tem uma densidade populacional menor (%.2f) que a cidade %s (%.2f).\n", cidade2.codigo, cidade2.densidade_populacional, cidade1.codigo, cidade1.densidade_populacional);
+    }
+    else
+    {
+        printf("As cidades %s e %s têm a mesma densidade populacional (%.2f).\n", cidade1.codigo, cidade2.codigo, cidade1.densidade_populacional);
+    }
+
+    // Comparação das outras propriedades (vence a cidade com maior valor)
+    if (cidade1.populacao > cidade2.populacao)
+    {
+        printf("A cidade %s tem uma população maior (%d) que a cidade %s (%d).\n", cidade1.codigo, cidade1.populacao, cidade2.codigo, cidade2.populacao);
+    }
+    else if (cidade1.populacao < cidade2.populacao)
+    {
+        printf("A cidade %s tem uma população maior (%d) que a cidade %s (%d).\n", cidade2.codigo, cidade2.populacao, cidade1.codigo, cidade1.populacao);
+    }
+    else
+    {
+        printf("As cidades %s e %s têm a mesma população (%d).\n", cidade1.codigo, cidade2.codigo, cidade1.populacao);
+    }
+
+    if (cidade1.area > cidade2.area)
+    {
+        printf("A cidade %s tem uma área maior (%.2f) que a cidade %s (%.2f).\n", cidade1.codigo, cidade1.area, cidade2.codigo, cidade2.area);
+    }
+    else if (cidade1.area < cidade2.area)
+    {
+        printf("A cidade %s tem uma área maior (%.2f) que a cidade %s (%.2f).\n", cidade2.codigo, cidade2.area, cidade1.codigo, cidade1.area);
+    }
+    else
+    {
+        printf("As cidades %s e %s têm a mesma área (%.2f).\n", cidade1.codigo, cidade2.codigo, cidade1.area);
+    }
+
+    if (cidade1.pib > cidade2.pib)
+    {
+        printf("A cidade %s tem um PIB maior (%.2f) que a cidade %s (%.2f).\n", cidade1.codigo, cidade1.pib, cidade2.codigo, cidade2.pib);
+    }
+    else if (cidade1.pib < cidade2.pib)
+    {
+        printf("A cidade %s tem um PIB maior (%.2f) que a cidade %s (%.2f).\n", cidade2.codigo, cidade2.pib, cidade1.codigo, cidade1.pib);
+    }
+    else
+    {
+        printf("As cidades %s e %s têm o mesmo PIB (%.2f).\n", cidade1.codigo, cidade2.codigo, cidade1.pib);
+    }
+
+    if (cidade1.pontos_turisticos > cidade2.pontos_turisticos)
+    {
+        printf("A cidade %s tem mais pontos turísticos (%d) que a cidade %s (%d).\n", cidade1.codigo, cidade1.pontos_turisticos, cidade2.codigo, cidade2.pontos_turisticos);
+    }
+    else if (cidade1.pontos_turisticos < cidade2.pontos_turisticos)
+    {
+        printf("A cidade %s tem mais pontos turísticos (%d) que a cidade %s (%d).\n", cidade2.codigo, cidade2.pontos_turisticos, cidade1.codigo, cidade1.pontos_turisticos);
+    }
+    else
+    {
+        printf("As cidades %s e %s têm o mesmo número de pontos turísticos (%d).\n", cidade1.codigo, cidade2.codigo, cidade1.pontos_turisticos);
+    }
+
+    if (cidade1.pib_per_capita > cidade2.pib_per_capita)
+    {
+        printf("A cidade %s tem um PIB per capita maior (%.2f) que a cidade %s (%.2f).\n", cidade1.codigo, cidade1.pib_per_capita, cidade2.codigo, cidade2.pib_per_capita);
+    }
+    else if (cidade1.pib_per_capita < cidade2.pib_per_capita)
+    {
+        printf("A cidade %s tem um PIB per capita maior (%.2f) que a cidade %s (%.2f).\n", cidade2.codigo, cidade2.pib_per_capita, cidade1.codigo, cidade1.pib_per_capita);
+    }
+    else
+    {
+        printf("As cidades %s e %s têm o mesmo PIB per capita (%.2f).\n", cidade1.codigo, cidade2.codigo, cidade1.pib_per_capita);
+    }
+
+    // Comparação do super poder (vence a cidade com maior valor)
     if (cidade1.super_poder > cidade2.super_poder)
     {
         printf("A cidade %s tem um super poder maior (%.2f) que a cidade %s (%.2f).\n", cidade1.codigo, cidade1.super_poder, cidade2.codigo, cidade2.super_poder);
